@@ -1,0 +1,226 @@
+/* 1. Global Scope / Brand Tokens (Variables de marca) */
+:root {
+  --color-applus-orange: #ee7900; /* Naranja corporativo Applus+ */
+  --color-applus-taupe: #646661;  /* Gris pardo corporativo */
+
+  /* Variables individuales para cada letra de "AmbiensQ"
+     Cambia cada una a tu gusto, de forma independiente */
+  --color-letter-A: var(--color-applus-orange);
+  --color-letter-m: var(--color-applus-taupe);
+  --color-letter-b: var(--color-applus-taupe);
+  --color-letter-i: var(--color-applus-taupe);
+  --color-letter-e: var(--color-applus-taupe);
+  --color-letter-n: var(--color-applus-taupe);
+  --color-letter-s: var(--color-applus-taupe);
+  --color-letter-Q: var(--color-applus-orange);
+}
+
+/* 2. Global Resets & Layout Base */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom left, lch(52.29% 73.64 50.29 / 0.867) 0%, #ebe7e7 100%);
+}
+
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. Component Styles (Tarjeta de autenticación) */
+.login-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Estilos base del título h2 */
+.login-card h2,
+.login-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.3px;
+  display: block;
+}
+
+/* Selección directa con alta especificidad (Color Override) */
+.login-card h2 .brand-accent,
+.login-title .brand-accent {
+  color: var(--color-applus-orange) !important;
+}
+
+.login-card h2 .brand-neutral,
+.login-title .brand-neutral {
+  color: var(--color-applus-taupe) !important;
+}
+
+/* Subtítulo "AmbiensQ" — cada letra ajustable de forma independiente */
+.ambiensq-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin: 0 0 0.75rem 0;
+  display: block;
+}
+
+.letter-A { color: var(--color-letter-A) !important; }
+.letter-m { color: var(--color-letter-m) !important; }
+.letter-b { color: var(--color-letter-b) !important; }
+.letter-i { color: var(--color-letter-i) !important; }
+.letter-e { color: var(--color-letter-e) !important; }
+.letter-n { color: var(--color-letter-n) !important; }
+.letter-s { color: var(--color-letter-s) !important; }
+.letter-Q { color: var(--color-letter-Q) !important; }
+
+.subtitle {
+  color: #02070e;
+  font-size: 0.9rem;
+  margin: 0 0 2rem 0;
+}
+
+/* 4. Formulario de correo/contraseña (reemplaza al botón de Microsoft) */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.required-asterisk {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Fondo fijo: evita que el modo oscuro del navegador lo oscurezca */
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  color: #1f2937; /* Texto siempre oscuro, sin importar el modo del sistema */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:hover {
+  border-color: #cbd5e1;
+}
+
+.form-input:focus {
+  border-color: var(--color-applus-orange);
+  box-shadow: 0 0 0 3px rgba(238, 121, 0, 0.15);
+}
+
+/* Contenedor reutilizable para inputs con ícono (correo y contraseña) */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.9rem;
+  color: #9ca3af;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.form-input.has-left-icon {
+  padding-left: 2.6rem;
+}
+
+.form-input.has-right-icon {
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-applus-orange);
+}
+
+.forgot-password-link {
+  align-self: flex-end;
+  color: var(--color-applus-orange);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: var(--color-applus-orange);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #d66d00;
+}
